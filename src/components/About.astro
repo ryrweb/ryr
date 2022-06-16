@@ -1,0 +1,59 @@
+---
+import isotipo from './isotipo.png';
+import Title from "./Title.astro";
+---
+
+<section>
+  <Title>Sobre nosotros</Title>
+  <article>
+    <p>
+      Somos una firma boutique de prestación de servicios de servicios jurídicos.
+    </p>
+    <p>
+      Contamos con un equipo altamente calificado, con amplia experiencia y una sólida trayectoria en
+      nuestras áreas de práctica. Además, contamos con alianzas estratégicas con abogado(a)s
+      especializados en todas las áreas del Derecho para ofrecerles a nuestros clientes una atención
+      integral.
+    </p>
+    <p>
+      Nos caracterizan nuestro sentido de responsabilidad para con el cliente, la seriedad de
+      nuestro trabajo, el rigor técnico y la calidad de nuestros servicios.
+    </p>
+  </article>
+  <img src={isotipo} alt='logo'>
+</section>
+<style>
+  section {
+    background-color: var(--color-white);
+    /* background-color: red;
+    opacity: .7; */
+    flex-wrap: wrap;
+    max-width: 1035px;
+    margin: auto;
+    display: flex;
+    gap: 118px;
+    padding: 40px 0 195px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 100;
+  }
+
+  article {
+    padding: 0 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 65%;
+  }
+
+  p {
+    line-height: 29px;
+  }
+
+  img {
+    width: 185px;
+    margin-right: 40px;
+  }
+</style>
