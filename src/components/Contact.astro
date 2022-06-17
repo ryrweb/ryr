@@ -1,0 +1,78 @@
+<footer>
+  <form action="">
+    <h1>Contacto</h1>
+    <p>Deja un mensaje y pronto nos pondremos en contacto contigo</p>
+    <input type="text" placeholder="Nombre" />
+    <input type="text" placeholder="Email" />
+    <textarea placeholder="Mensaje" />
+    <button>Enviar</button>
+  </form>
+  <aside>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3595.9840206692165!2d-100.34504878454514!3d25.671824418579366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662be0214c00001%3A0x2f1dd57ee2113e27!2sBelisario%20Dom%C3%ADnguez%202020-Piso%201%2C%20Oficina%20119%2C%20Obispado%2C%2064060%20Monterrey%2C%20N.L.!5e0!3m2!1ses!2smx!4v1655444134040!5m2!1ses!2smx"
+      width="500" height="350" style="border:0;" allowfullscreen={true} loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <p>Belisario dominguez No. 2020, Piso 1, Oficina 119 </p>
+    <p>Col. Obispado monterrey, Nuevo Leon, México</p>
+    <p>C.P. 64060 </p>
+    <p>Tel.(81)50000089</p>
+    <p>contacto@ramirezyroman.com</p>
+  </aside>
+</footer>
+<style>
+  footer {
+    padding: 50px 0;
+    display: flex;
+    flex-wrap: wrap;
+    /* max-width: 990px; */
+    margin: auto;
+    justify-content: center;
+    gap: 50px;
+    background-color: var(--color-titles);
+    color: var(--color-white);
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  input {
+    height: 40px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    padding: 0 10px;
+  }
+
+  textarea {
+    border-radius: 5px;
+    padding: 3px 10px;
+    height: 80px;
+  }
+
+  button {
+    color: var(--color-titles);
+    border: 1px solid var(--color-titles);
+    background-color: var(--color-white);
+    width: fit-content;
+    padding: 7px 30px;
+    border-radius: 3px;
+
+  }
+
+  button:hover {
+    color: var(--color-white);
+    border: 1px solid var(--color-white);
+    background-color: transparent;
+  }
+
+  h1 {
+    color: var(--color-white);
+  }
+
+  aside p {
+    font-size: 13px;
+  }
+</style>

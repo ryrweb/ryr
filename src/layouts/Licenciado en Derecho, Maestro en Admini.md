@@ -12,8 +12,7 @@ Academia Interamericana de Derechos Humanos en Saltillo, Coah. Ha
 sido instructor en temas de cultura de la legalidad, combate a la
 corrupción y compras gubernamentales. Actualmente, es profesor en
 el Departamento de Derecho de la UDEM en donde imparte las
-
-cátedras de electoral, constitucional y administrativo .
+cátedras de electoral, constitucional y administrativo.
 
 Licenciado en Derecho por el Tecnológico de Monterrey. Maestro en
 Derecho Público por la Universidad Autónoma de Nuevo León.

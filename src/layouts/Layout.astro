@@ -51,8 +51,8 @@ const { title } = Astro.props as Props;
   }
 
   body {
-    background-image: url('./ryr.png');
-    height: 570vh;
+    /* background-image: url('./ryr.png');
+    height: 500vh; */
     background-repeat: no-repeat;
     background-size: 1440px;
     background-position: top;
@@ -69,9 +69,14 @@ const { title } = Astro.props as Props;
     color: var(--color-titles);
     font-family: 'Gotham Book', sans-serif;
   }
-
+  
   a {
     color: inherit;
+  }
+  
+  textarea, input{
+    font-family: 'Gotham Book', sans-serif;
+    font-size: 13px;
   }
 
   hr {

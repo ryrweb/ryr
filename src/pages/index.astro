@@ -7,6 +7,9 @@ import Values from '../components/Values.astro';
 import About from '../components/About.astro';
 import Areas from '../components/Areas.astro';
 import Services from '../components/Services.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Partners from '../components/Partners.astro';
+import Contact from '../components/Contact.astro';
 ---
 
 <Layout title="Welcome to Astro.">
@@ -17,14 +20,17 @@ import Services from '../components/Services.astro';
 		<About />
 		<Areas />
 		<Services />
-		<section>testimonios</section>
-		<section>socios</section>
+		<Testimonials />
+		<Partners />
 	</main>
-	<footer>contacto y mapa</footer>
+	<Contact />
 </Layout>
 
 <style>
-	main {}
+	main {
+		/* display: flex; */
+		/* flex-direction: column-reverse; */
+	}
 
 	@keyframes pulse {
 
