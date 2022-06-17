@@ -1,25 +1,18 @@
 ---
-import Title from "./Title.astro";
-import mase from './mase.png';
-import license from './driver-license.png';
-import portfolio from './portfolio.png';
-import success from './success.png';
-import warning from './warning.png';
-import copy from './copy.png';
-import shield from './shield.png';
-import museum from './museum.png';
+import Title from './Title.astro';
+import icons from '../icons';
 ---
 
 <section>
   <Title>Nuestros servicios</Title>
   <ul>
     <li>
-      <img src={museum} />
+      <img src={icons.museum} />
       <h2>Consultoría jurídica general</h2>
       <p></p>
     </li>
     <li>
-      <img src={mase} />
+      <img src={icons.mase} />
       <h2>Litigio</h2>
       <p>
         controversias constitucionales, acciones
@@ -29,7 +22,7 @@ import museum from './museum.png';
       </p>
     </li>
     <li>
-      <img src={license} />
+      <img src={icons.license} />
       <h2>Procedimientos administrativos</h2>
       <p>licitaciones, declaraciones patrimoniales
         y de conflictos de intereses,
@@ -40,30 +33,30 @@ import museum from './museum.png';
       </p>
     </li>
     <li>
-      <img src={shield} />
+      <img src={icons.shield} />
       <h2>Procedimientos estatales, federales e
         internacionales de protección de derechos
         humanos</h2>
       <p></p>
     </li>
     <li>
-      <img src={copy} />
+      <img src={icons.copy} />
       <h2>Elaboración de proyectos de ley y
         reglamentos</h2>
       <p></p>
     </li>
     <li>
-      <img src={portfolio} />
+      <img src={icons.portfolio} />
       <h2>Contratos</h2>
       <p></p>
     </li>
     <li>
-      <img src={warning} />
+      <img src={icons.warning} />
       <h2>Avisos de privacidad</h2>
       <p></p>
     </li>
     <li>
-      <img src={success} />
+      <img src={icons.success} />
       <h2>Capacitación</h2>
       <p></p>
     </li>
