@@ -1,0 +1,112 @@
+---
+import Title from "./Title.astro";
+import mase from './mase.png';
+import license from './driver-license.png';
+import portfolio from './portfolio.png';
+import success from './success.png';
+import warning from './warning.png';
+import copy from './copy.png';
+import shield from './shield.png';
+import museum from './museum.png';
+---
+
+<section>
+  <Title>Nuestros servicios</Title>
+  <ul>
+    <li>
+      <img src={museum} />
+      <h2>Consultoría jurídica general</h2>
+      <p></p>
+    </li>
+    <li>
+      <img src={mase} />
+      <h2>Litigio</h2>
+      <p>
+        controversias constitucionales, acciones
+        de inconstitucionalidad, amparo, juicios
+        electorales, administrativos y de otras
+        materias
+      </p>
+    </li>
+    <li>
+      <img src={license} />
+      <h2>Procedimientos administrativos</h2>
+      <p>licitaciones, declaraciones patrimoniales
+        y de conflictos de intereses,
+        responsabilidades administrativas,
+        licencias, permisos, acceso a la
+        información y protección de datos, entre
+        otros
+      </p>
+    </li>
+    <li>
+      <img src={shield} />
+      <h2>Procedimientos estatales, federales e
+        internacionales de protección de derechos
+        humanos</h2>
+      <p></p>
+    </li>
+    <li>
+      <img src={copy} />
+      <h2>Elaboración de proyectos de ley y
+        reglamentos</h2>
+      <p></p>
+    </li>
+    <li>
+      <img src={portfolio} />
+      <h2>Contratos</h2>
+      <p></p>
+    </li>
+    <li>
+      <img src={warning} />
+      <h2>Avisos de privacidad</h2>
+      <p></p>
+    </li>
+    <li>
+      <img src={success} />
+      <h2>Capacitación</h2>
+      <p></p>
+    </li>
+  </ul>
+</section>
+
+<style>
+  section {
+    padding: 40px 0 103px;
+    display: grid;
+    grid-template-columns: 1120px;
+    justify-content: center;
+    background-color: var(--color-white);
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 50%);
+    justify-items: center;
+    row-gap: 70px;
+    margin-top: 70px;
+  }
+
+  li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 80%;
+    gap: 18px;
+    text-align: center;
+  }
+
+  img {
+    height: 50px;
+  }
+
+  h2 {
+    color: var(--color-text);
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+</style>

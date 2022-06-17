@@ -1,0 +1,61 @@
+---
+const areas = [
+  "Constitucional",
+  "Derechos Humanos",
+  "Amparo",
+  "Electoral",
+  "Parlamentario",
+  "Municipal",
+  "Administrativo",
+  "Complice regulatorio",
+  "Sistemas Anticorrupción",
+  "Responsabilidades administrativas",
+  "Licitaciones",
+  "Energético",
+  "Acceso a la información",
+  "Proteccion de Datos Personales",
+  "Contratos",
+  "Nulidad del matrimonio eclesiastico",
+  "Derecho en general",
+]
+---
+
+<section>
+  <h1>
+    Principales areas de <b>Practica</b>
+  </h1>
+  <ul>
+    {
+    areas.map((area)=><li>{area}</li>)
+    }
+  </ul>
+</section>
+<style>
+  section {
+    background-color: var(--color-titles);
+    opacity: 1;
+    color: var(--color-white);
+    padding: 45px 0;
+  }
+
+  h1 {
+    color: var(--color-white);
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    margin: auto;
+    font-size: 14px;
+    max-width: 910px;
+    margin: auto;
+    font-size: 14px;
+    gap: 26px 111px;
+    font-weight: 100;
+    letter-spacing: .3px;
+    margin-bottom: 12px;
+  }
+</style>
