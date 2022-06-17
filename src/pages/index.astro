@@ -1,46 +1,43 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
-import Navbar from '../components/Navbar.astro';
-import Slider from '../components/Slider.astro';
-import Values from '../components/Values.astro';
-import About from '../components/About.astro';
-import Areas from '../components/Areas.astro';
-import Services from '../components/Services.astro';
-import Testimonials from '../components/Testimonials.astro';
-import Partners from '../components/Partners.astro';
-import Contact from '../components/Contact.astro';
 ---
 
-<Layout title="Welcome to Astro.">
-	<Navbar>nav</Navbar>
-	<main>
-		<Slider />
-		<Values />
-		<About />
-		<Areas />
-		<Services />
-		<Testimonials />
-		<Partners />
-	</main>
-	<Contact />
-</Layout>
+<main>
+	<h1>
+		Contáctanos
+	</h1>
+	<p>
+		Nuestro sitio está en mantenimiento
+	</p>
+	<a href="mailto:contacto@ramirezyroman.com">envía un correo a <span> contacto@ramirezyroman.com</span></a>
+</main>
 
 <style>
-	main {
-		/* display: flex; */
-		/* flex-direction: column-reverse; */
+	body {
+		display: grid;
+		place-items: center;
+		height: 85vh;
+		background-image: url('../icons/isotipo.png');
+		background-size: 400px;
+		background-position: center;
 	}
 
-	@keyframes pulse {
+	main {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		text-align: center;
 
-		0%,
-		100% {
-			background-position-y: 0%;
-		}
+	}
 
-		50% {
-			background-position-y: 80%;
-		}
+	h1 {
+		font-size: 60px;
+	}
+
+	p {
+		font-size: 20px;
+	}
+
+	span {
+		color: var(--color-titles);
 	}
 </style>
