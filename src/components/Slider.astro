@@ -1,3 +1,9 @@
+---
+import slide_1 from '../icons/slider_1.jpg';
+import slide_2 from '../icons/slider_2.jpg';
+import slide_3 from '../icons/slider_3.jpg';
+import slide_4 from '../icons/slider_4.jpg';
+---
 <section class="carousel" aria-label="Gallery">
   <ol class="carousel__viewport">
     <li id="carousel__slide1" tabindex={0} class="carousel__slide">
@@ -25,7 +31,7 @@
 </section>
 <style>
   section {
-    height: 571px;
+    height: 671px;
     background-color: rgba(255, 255, 255, 0.539);
     overflow-y: hidden;
   }
@@ -131,23 +137,35 @@
     counter-reset: item;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
-    height: 646px;
+    height: 800px;
   }
 
   .carousel__slide {
     position: relative;
     flex: 0 0 100%;
     width: 100%;
-    background-color: #f99;
     counter-increment: item;
   }
+  .carousel__slide{
+    filter: brightness(.4);
+    background-size: cover;
+  }
 
-  .carousel__slide:nth-child(even) {
-    background-color: #99f;
+  .carousel__slide:nth-of-type(1) {
+    background-image: url("../icons/slider_1.jpg");
+  }
+  .carousel__slide:nth-of-type(2) {
+    background-image: url("../icons/slider_2.jpg");
+  }
+  .carousel__slide:nth-of-type(3) {
+    background-image: url("../icons/slider_3.jpg");
+  }
+  .carousel__slide:nth-of-type(4) {
+    background-image: url("../icons/slider_4.jpg");
   }
 
   .carousel__slide:before {
-    content: counter(item);
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
