@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
 import Navbar from '../components/Navbar.astro';
 import Slider from '../components/Slider.astro';
 import Values from '../components/Values.astro';
@@ -10,18 +9,150 @@ import Services from '../components/Services.astro';
 import Testimonials from '../components/Testimonials.astro';
 import Partners from '../components/Partners.astro';
 import Contact from '../components/Contact.astro';
+
+const response = await fetch("http://localhost:1337/graphql",
+	{
+		method: 'POST',
+		headers: { 'Content-Type': 'application/json' },
+		cache: 'force-cache',
+		body: JSON.stringify({
+			query: `query {
+	page(id: 2) {
+		data {
+			id
+			attributes {
+				csses {
+					data {
+						id
+
+						attributes {
+							css {
+								data {
+									attributes {
+										url
+									}
+								}
+							}
+						}
+					}
+				}
+				sections {
+					__typename
+					... on ComponentSectionNavbar {
+						links {
+							url
+							title
+						}
+						logo {
+							data {
+								attributes {
+									url
+								}
+							}
+						}
+					}
+					... on ComponentSectionSlide {
+						id
+						items{
+							image{
+								data{
+									attributes{
+										url
+									}
+								}
+							}
+						}
+					}
+					... on ComponentSectionAbout {
+						id
+						title
+						description
+						image {
+							data {
+								attributes {
+									url
+								}
+							}
+						}
+					}
+					... on ComponentSectionAreas {
+						title
+						items {
+							title
+						}
+					}
+					... on ComponentSectionServices {
+						title
+						items {
+							title
+							description
+							image {
+								data {
+									attributes {
+										url
+									}
+								}
+							}
+						}
+					}
+					... on ComponentSectionPartners {
+						title
+						items {
+							title
+							caption
+							description
+							image {
+								data {
+									attributes {
+										url
+									}
+								}
+							}
+						}
+					}
+					... on ComponentSectionContact {
+						id
+						title
+						description
+						email
+						url
+						phone
+						postal
+					}
+				}
+			}
+		}
+	}
+}`,
+		}),
+	})
+
+const { data } = await response.json()
+const { sections } = data?.page.data.attributes
 ---
 
 <Layout title="Ramírez y Román">
 	<Navbar>nav</Navbar>
 	<main>
-		<Slider />
-		<Values />
-		<About />
-		<Areas />
-		<Services />
-		<Testimonials />
-		<Partners />
+		<main>
+			{sections?.map((element) => {
+			switch (element.__typename) {
+			case "ComponentSectionSlide":
+			return <Slider />
+			case "ComponentSectionCards":
+			return <Values />
+			case "ComponentSectionAbout":
+			return <About data={element}></About>
+			case "ComponentSectionAreas":
+			return <Areas />
+			case "ComponentSectionServices":
+			return 	<Services />
+			case "ComponentSectionPartners":
+			return 	<Partners />
+			default:
+			return <h1>default</h1>
+			}})}
+		</main>
 	</main>
 	<Contact />
 </Layout>
