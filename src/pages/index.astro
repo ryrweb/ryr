@@ -10,168 +10,33 @@ import Testimonials from '../components/Testimonials.astro';
 import Partners from '../components/Partners.astro';
 import Contact from '../components/Contact.astro';
 
-const response = await fetch("http://localhost:1337/graphql",
-	{
-		method: 'POST',
-		headers: { 'Content-Type': 'application/json' },
-		cache: 'force-cache',
-		body: JSON.stringify({
-			query: `query {
-	page(id: 2) {
-		data {
-			id
-			attributes {
-				csses {
-					data {
-						id
-
-						attributes {
-							css {
-								data {
-									attributes {
-										url
-									}
-								}
-							}
-						}
-					}
-				}
-				sections {
-					__typename
-					... on ComponentSectionNavbar {
-						links {
-							url
-							title
-						}
-						logo {
-							data {
-								attributes {
-									url
-								}
-							}
-						}
-					}
-					... on ComponentSectionSlide {
-						id
-						items{
-							image{
-								data{
-									attributes{
-										url
-									}
-								}
-							}
-						}
-					}
-					... on ComponentSectionAbout {
-						id
-						title
-						description
-						image {
-							data {
-								attributes {
-									url
-								}
-							}
-						}
-					}
-					... on ComponentSectionAreas {
-						title
-						items {
-							title
-						}
-					}
-					... on ComponentSectionServices {
-						title
-						items {
-							title
-							description
-							image {
-								data {
-									attributes {
-										url
-									}
-								}
-							}
-						}
-					}
-					... on ComponentSectionPartners {
-						title
-						items {
-							title
-							caption
-							description
-							image {
-								data {
-									attributes {
-										url
-									}
-								}
-							}
-						}
-					}
-					... on ComponentSectionContact {
-						id
-						title
-						description
-						email
-						url
-						phone
-						postal
-					}
-				}
-			}
-		}
-	}
-}`,
-		}),
-	})
-
-const { data } = await response.json()
-const { sections } = data?.page.data.attributes
+import { getData } from './getData'
+const { sections } = await getData()
 ---
 
-<Layout title="Ramírez y Román">
-	<Navbar>nav</Navbar>
-	<main>
-		<main>
-			{sections?.map((element) => {
-			switch (element.__typename) {
-			case "ComponentSectionSlide":
-			return <Slider />
-			case "ComponentSectionCards":
-			return <Values />
-			case "ComponentSectionAbout":
-			return <About data={element}></About>
-			case "ComponentSectionAreas":
-			return <Areas />
-			case "ComponentSectionServices":
-			return 	<Services />
-			case "ComponentSectionPartners":
-			return 	<Partners />
-			default:
-			return <h1>default</h1>
-			}})}
-		</main>
-	</main>
-	<Contact />
+<!-- optimizar favicon -->
+<Layout>
+		{sections?.map((element) => {
+		// optimizar switch
+		switch (element.__typename) {
+		case "ComponentSectionNavbar":
+		return <Navbar />
+		case "ComponentSectionSlide":
+		return <Slider />
+		case "ComponentSectionCards":
+		return <Values />
+		case "ComponentSectionAbout":
+		return <About data={element}></About>
+		case "ComponentSectionAreas":
+		return <Areas />
+		case "ComponentSectionServices":
+		return <Services />
+		case "ComponentSectionPartners":
+		return <Partners />
+		case "ComponentSectionContact":
+		return <Contact />
+		default:
+		return <Testimonials />
+		}
+		})}
 </Layout>
-
-<style>
-	main {
-		/* display: flex; */
-		/* flex-direction: column-reverse; */
-	}
-
-	@keyframes pulse {
-
-		0%,
-		100% {
-			background-position-y: 0%;
-		}
-
-		50% {
-			background-position-y: 80%;
-		}
-	}
-</style>

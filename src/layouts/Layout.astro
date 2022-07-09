@@ -1,9 +1,6 @@
 ---
-export interface Props {
-  title: string;
-}
-
-const { title } = Astro.props as Props;
+import { getData } from '../pages/getData'
+const { faviconUrl, name } = await getData()
 ---
 
 <!DOCTYPE html>
@@ -12,8 +9,8 @@ const { title } = Astro.props as Props;
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <title>{title}</title>
+  <link rel="icon" type="image/x-icon" href={`http://localhost:1337${faviconUrl}`} />
+  <title>{name}</title>
 </head>
 
 <body>
@@ -44,7 +41,7 @@ const { title } = Astro.props as Props;
   }
 
   html {
-    font-family:  'Raleway', sans-serif;
+    font-family: 'Raleway', sans-serif;
     color: var(--color-text);
     background-color: var(--color-white);
     scroll-behavior: smooth;
@@ -63,22 +60,24 @@ const { title } = Astro.props as Props;
   h2 {
     font-size: var(--font-size-lg);
     color: var(--color-titles);
-    font-family:  'Raleway', sans-serif;
+    font-family: 'Raleway', sans-serif;
   }
-  
+
   a {
     color: inherit;
   }
-  
-  textarea, input{
-    font-family:  'Raleway', sans-serif;
+
+  textarea,
+  input {
+    font-family: 'Raleway', sans-serif;
     font-size: 13px;
   }
 
   hr {
     border: none;
   }
-  .anchor{
+
+  .anchor {
     position: relative;
     top: -63px;
   }
