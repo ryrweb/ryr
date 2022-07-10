@@ -41,6 +41,20 @@ export const PAGE_QUERY = `query {
               }
             }
           }
+          ... on ComponentSectionCards {
+						title
+						items {
+							title
+							image{
+								data{ 
+								attributes{
+									url
+								}
+									
+								}
+							}
+						}
+					}
           ... on ComponentSectionSlide {
             id
             items {

@@ -2,11 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import Page from '../components/index'
 import { getData } from './getData'
-
+import { GetImageUrl } from '../utils/getUrl';
 const { sections } = await getData()
 ---
 <Layout>
 	{sections?.map((section) => {
+		section = {...section , GetImageUrl}
+
 		switch (section.__typename) {
 			case "ComponentSectionNavbar":
 				return <Page.Navbar {...section} />
