@@ -1,66 +1,18 @@
 ---
 import Title from './Title.astro';
-import icons from '../icons';
+const { title, items, GetImageUrl } = Astro.props
 ---
 
-<span  id="services" class="anchor"/>
-<section>
-  <Title>Nuestros servicios</Title>
+<section id="services" >
+  <Title>{title}</Title>
   <ul>
-    <li>
-      <img src={icons.museum} />
-      <h2>Consultoría jurídica general</h2>
-      <p></p>
-    </li>
-    <li>
-      <img src={icons.mase} />
-      <h2>Litigio</h2>
-      <p>
-        controversias constitucionales, acciones
-        de inconstitucionalidad, amparo, juicios
-        electorales, administrativos y de otras
-        materias
-      </p>
-    </li>
-    <li>
-      <img src={icons.license} />
-      <h2>Procedimientos administrativos</h2>
-      <p>licitaciones, declaraciones patrimoniales
-        y de conflictos de intereses,
-        responsabilidades administrativas,
-        licencias, permisos, acceso a la
-        información y protección de datos, entre
-        otros
-      </p>
-    </li>
-    <li>
-      <img src={icons.shield} />
-      <h2>Procedimientos estatales, federales e
-        internacionales de protección de derechos
-        humanos</h2>
-      <p></p>
-    </li>
-    <li>
-      <img src={icons.copy} />
-      <h2>Elaboración de proyectos de ley y
-        reglamentos</h2>
-      <p></p>
-    </li>
-    <li>
-      <img src={icons.portfolio} />
-      <h2>Contratos</h2>
-      <p></p>
-    </li>
-    <li>
-      <img src={icons.warning} />
-      <h2>Avisos de privacidad</h2>
-      <p></p>
-    </li>
-    <li>
-      <img src={icons.success} />
-      <h2>Capacitación</h2>
-      <p></p>
-    </li>
+    {items.map(({title, description, image})=>(
+      <li>
+        <img src={GetImageUrl(image)} />
+        <h2>{title}</h2>
+        <p>{description}</p>
+      </li>
+    ))}
   </ul>
 </section>
 

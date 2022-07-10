@@ -1,8 +1,17 @@
-<span  id="contact" class="anchor"/>
-<footer>
+---
+const {
+  title,
+  description,
+  email,
+  phone,
+  postal,
+  address
+} = Astro.props
+---
+<footer id="contact" >
   <form action="">
-    <h1>Contacto</h1>
-    <p>Deja un mensaje y pronto nos pondremos en contacto contigo</p>
+    <h1>{title}</h1>
+    <p>{description}</p>
     <input type="text" placeholder="Nombre" />
     <input type="text" placeholder="Email" />
     <textarea placeholder="Mensaje" />
@@ -13,11 +22,10 @@
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3595.9840206692165!2d-100.34504878454514!3d25.671824418579366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662be0214c00001%3A0x2f1dd57ee2113e27!2sBelisario%20Dom%C3%ADnguez%202020-Piso%201%2C%20Oficina%20119%2C%20Obispado%2C%2064060%20Monterrey%2C%20N.L.!5e0!3m2!1ses!2smx!4v1655444134040!5m2!1ses!2smx"
       width="500" height="350" style="border:0;" allowfullscreen={true} loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"></iframe>
-    <p>Belisario dominguez No. 2020, Piso 1, Oficina 119 </p>
-    <p>Col. Obispado monterrey, Nuevo Leon, México</p>
-    <p>C.P. 64060 </p>
-    <p>Tel.(81)50000089</p>
-    <p>contacto@ramirezyroman.com</p>
+    <p>{address}</p>
+    <p>{postal}</p>
+    <p>{phone}</p>
+    <p>{email}</p>
   </aside>
 </footer>
 <style>

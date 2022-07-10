@@ -1,15 +1,13 @@
 ---
-import logotipo from '../icons/logo.png';
+const { links, logo, GetImageUrl } = Astro.props
 ---
 
 <nav>
-	<a href="/"><img src={logotipo} alt='logo' /></a>
+	<a href="/"><img src={GetImageUrl(logo)} alt='logo' /></a>
 	<ul>
-		<li><a href="/#values">Sobre nosotros</a></li>
-		<li><a href="/#areas">Áreas de practica</a></li>
-		<li><a href="/#services">Servicios</a></li>
-		<li><a href="/#partners">Socios</a></li>
-		<li><a href="/#contact">Contacto</a></li>
+		{links.map(({title, url})=>(
+			<li><a href={`/${url}`}>{title}</a></li>
+		))}
 	</ul>
 </nav>
 <style>
@@ -18,7 +16,6 @@ import logotipo from '../icons/logo.png';
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		/* max-width: 1440px; */
 		padding: 0 102px 0 68px;
 		height: 76px;
 		font-family: 'Playfair Display', serif;
@@ -32,7 +29,6 @@ import logotipo from '../icons/logo.png';
 
 	img {
 		display: block;
-		/* width: 170px; */
 		height: 60px;
 		position: relative;
 	}

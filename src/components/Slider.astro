@@ -1,32 +1,18 @@
 ---
-import slide_1 from '../icons/slider_1.jpg';
-import slide_2 from '../icons/slider_2.jpg';
-import slide_3 from '../icons/slider_3.jpg';
-import slide_4 from '../icons/slider_4.jpg';
+const { items, GetImageUrl } = Astro.props
+const itemsCount = items.length;
 ---
+
 <section class="carousel" aria-label="Gallery">
   <ol class="carousel__viewport">
-    <li id="carousel__slide1" tabindex={0} class="carousel__slide">
-      <div class="carousel__snapper">
-        <a href="#carousel__slide4" class="carousel__prev">Go to last slide</a>
-        <a href="#carousel__slide2" class="carousel__next">Go to next slide</a>
-      </div>
-    </li>
-    <li id="carousel__slide2" tabindex={0} class="carousel__slide">
-      <div class="carousel__snapper"></div>
-      <a href="#carousel__slide1" class="carousel__prev">Go to previous slide</a>
-      <a href="#carousel__slide3" class="carousel__next">Go to next slide</a>
-    </li>
-    <li id="carousel__slide3" tabindex={0} class="carousel__slide">
-      <div class="carousel__snapper"></div>
-      <a href="#carousel__slide2" class="carousel__prev">Go to previous slide</a>
-      <a href="#carousel__slide4" class="carousel__next">Go to next slide</a>
-    </li>
-    <li id="carousel__slide4" tabindex={0} class="carousel__slide">
-      <div class="carousel__snapper"></div>
-      <a href="#carousel__slide3" class="carousel__prev">Go to previous slide</a>
-      <a href="#carousel__slide1" class="carousel__next">Go to first slide</a>
-    </li>
+    {items.map(({image}, index)=>(
+      <li id={`carousel__slide${index + 1}`} tabindex={0} class="carousel__slide" style={`backgroundImage: url("${GetImageUrl(image)}");`}>
+        <div class="carousel__snapper">
+          <a href={`#carousel__slide${index || itemsCount}`} class="carousel__prev">Go to last slide</a>
+          <a href={`#carousel__slide${index === itemsCount - 1 ? 1 : index + 2}`} class="carousel__next">Go to next slide</a>
+        </div>
+      </li>
+    ))}
   </ol>
 </section>
 <style>
@@ -146,7 +132,8 @@ import slide_4 from '../icons/slider_4.jpg';
     width: 100%;
     counter-increment: item;
   }
-  .carousel__slide{
+
+  .carousel__slide {
     filter: brightness(.4);
     background-size: cover;
   }
@@ -154,12 +141,15 @@ import slide_4 from '../icons/slider_4.jpg';
   .carousel__slide:nth-of-type(1) {
     background-image: url("../icons/slider_1.jpg");
   }
+
   .carousel__slide:nth-of-type(2) {
     background-image: url("../icons/slider_2.jpg");
   }
+
   .carousel__slide:nth-of-type(3) {
     background-image: url("../icons/slider_3.jpg");
   }
+
   .carousel__slide:nth-of-type(4) {
     background-image: url("../icons/slider_4.jpg");
   }

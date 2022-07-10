@@ -81,7 +81,7 @@ export const PAGE_QUERY = `query {
           }
           ... on ComponentSectionAreas {
             title
-            items {
+            items(pagination:{limit:20}) {
               title
             }
           }
@@ -122,6 +122,7 @@ export const PAGE_QUERY = `query {
             url
             phone
             postal
+            address
           }
         }
       }

@@ -1,35 +1,11 @@
 ---
-const areas = [
-  "Constitucional",
-  "Derechos Humanos",
-  "Amparo",
-  "Electoral",
-  "Parlamentario",
-  "Municipal",
-  "Administrativo",
-  "Complice regulatorio",
-  "Sistemas Anticorrupción",
-  "Responsabilidades administrativas",
-  "Licitaciones",
-  "Energético",
-  "Acceso a la información",
-  "Proteccion de Datos Personales",
-  "Contratos",
-  "Nulidad del matrimonio eclesiastico",
-  "Derecho en general",
-]
+const { title, items } = Astro.props
 ---
 
-<span  id="areas" class="anchor"/>
+<span id="areas" class="anchor" />
 <section>
-  <h1>
-    Principales areas de <b>Practica</b>
-  </h1>
-  <ul>
-    {
-    areas.map((area)=><li>{area}</li>)
-    }
-  </ul>
+  <h1>{title}</h1>
+  <ul>{items.map( item => <li>{ item.title }</li> )}</ul>
 </section>
 <style>
   section {
