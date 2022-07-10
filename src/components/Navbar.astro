@@ -6,7 +6,7 @@ const { links, logo, GetImageUrl } = Astro.props
 	<a href="/"><img src={GetImageUrl(logo)} alt='logo' /></a>
 	<ul>
 		{links.map(({title, url})=>(
-			<li><a href={`/${url}`}>{title}</a></li>
+			<li><a href={`${url}`}>{title}</a></li>
 		))}
 	</ul>
 </nav>

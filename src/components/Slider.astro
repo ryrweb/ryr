@@ -6,7 +6,7 @@ const itemsCount = items.length;
 <section class="carousel" aria-label="Gallery">
   <ol class="carousel__viewport">
     {items.map(({image}, index)=>(
-      <li id={`carousel__slide${index + 1}`} tabindex={0} class="carousel__slide" style={`backgroundImage: url("${GetImageUrl(image)}");`}>
+      <li id={`carousel__slide${index + 1}`} tabindex={0} class="carousel__slide" style={`background-image: url("${GetImageUrl(image)}");`}>
         <div class="carousel__snapper">
           <a href={`#carousel__slide${index || itemsCount}`} class="carousel__prev">Go to last slide</a>
           <a href={`#carousel__slide${index === itemsCount - 1 ? 1 : index + 2}`} class="carousel__next">Go to next slide</a>
@@ -138,7 +138,7 @@ const itemsCount = items.length;
     background-size: cover;
   }
 
-  .carousel__slide:nth-of-type(1) {
+  /* .carousel__slide:nth-of-type(1) {
     background-image: url("../icons/slider_1.jpg");
   }
 
@@ -152,7 +152,7 @@ const itemsCount = items.length;
 
   .carousel__slide:nth-of-type(4) {
     background-image: url("../icons/slider_4.jpg");
-  }
+  } */
 
   .carousel__slide:before {
     content: "";
