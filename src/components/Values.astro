@@ -1,37 +1,30 @@
 ---
-import icons from '../icons';
+const { items, GetImageUrl } = Astro.props
 ---
-
-<span  id="values" class="anchor"/>
-<section>
-  <article>
-    <img src={icons.mace_white} alt="CALIDAD">
-    <p>PROFESINALISMO</p>
-  </article>
-  <article>
-    <img src={icons.balance_white} alt="PROFESIONALISMO">
-    <p>RIGOR TECNICO</p>
-  </article>
-  <article>
-    <img src={icons.museum_white} alt="RIGOR TECNICO">
-    <p>CALIDAD</p>
-  </article>
+<section id="values">
+  {items.map(({title, image}) => {
+    return(
+      <article>
+        <img src={GetImageUrl(image)} alt={title} />
+        <p>{title}</p>
+      </article>
+  )})}
 </section>
 <style>
   section {
     height: 134px;
     background-color: var(--color-titles);
     color: var(--color-white);
-    /* opacity: .3; */
     display: flex;
     justify-content: center;
     gap: 170px;
     align-items: center;
   }
 
-  p{
+  p {
     font-size: 14px;
   }
+
   article {
     text-align: center;
     width: 150px;

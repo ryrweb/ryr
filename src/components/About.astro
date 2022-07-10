@@ -1,27 +1,16 @@
 ---
-import isotipo from '../icons/isotipo.png';
+import { Markdown } from 'astro/components';
 import Title from "./Title.astro";
+
+const { title, description, image, GetImageUrl } = Astro.props
 ---
 
-<span  id="about" class="anchor"/>
-<section>
-  <Title>Sobre nosotros</Title>
+<section id="about">
+  <Title>{title}</Title>
   <article>
-    <p>
-      Somos una firma boutique de prestación de servicios de servicios jurídicos.
-    </p>
-    <p>
-      Contamos con un equipo altamente calificado, con amplia experiencia y una sólida trayectoria en
-      nuestras áreas de práctica. Además, contamos con alianzas estratégicas con abogado(a)s
-      especializados en todas las áreas del Derecho para ofrecerles a nuestros clientes una atención
-      integral.
-    </p>
-    <p>
-      Nos caracterizan nuestro sentido de responsabilidad para con el cliente, la seriedad de
-      nuestro trabajo, el rigor técnico y la calidad de nuestros servicios.
-    </p>
+    <Markdown content={description} />
   </article>
-  <img src={isotipo} alt='logo'>
+  <img src={GetImageUrl(image)} alt='logo'>
 </section>
 <style>
   section {
