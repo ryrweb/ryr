@@ -1,42 +1,30 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar.astro';
-import Slider from '../components/Slider.astro';
-import Values from '../components/Values.astro';
-import About from '../components/About.astro';
-import Areas from '../components/Areas.astro';
-import Services from '../components/Services.astro';
-import Testimonials from '../components/Testimonials.astro';
-import Partners from '../components/Partners.astro';
-import Contact from '../components/Contact.astro';
-
+import Page from '../components/index'
 import { getData } from './getData'
+
 const { sections } = await getData()
 ---
-
-<!-- optimizar favicon -->
 <Layout>
-		{sections?.map((element) => {
-		// optimizar switch
-		switch (element.__typename) {
-		case "ComponentSectionNavbar":
-		return <Navbar />
-		case "ComponentSectionSlide":
-		return <Slider />
-		case "ComponentSectionCards":
-		return <Values />
-		case "ComponentSectionAbout":
-		return <About data={element}></About>
-		case "ComponentSectionAreas":
-		return <Areas />
-		case "ComponentSectionServices":
-		return <Services />
-		case "ComponentSectionPartners":
-		return <Partners />
-		case "ComponentSectionContact":
-		return <Contact />
-		default:
-		return <Testimonials />
-		}
-		})}
+	{sections?.map((section) => {
+		switch (section.__typename) {
+			case "ComponentSectionNavbar":
+				return <Page.Navbar {...section} />
+			case "ComponentSectionSlide":
+				return <Page.Slider {...section} />
+			case "ComponentSectionCards":
+				return <Page.Values {...section} />
+			case "ComponentSectionAbout":
+				return <Page.About  {...section} />
+			case "ComponentSectionAreas":
+				return <Page.Areas {...section} />
+			case "ComponentSectionServices":
+				return <Page.Services {...section} />
+			case "ComponentSectionPartners":
+				return <Page.Partners {...section} />
+			case "ComponentSectionContact":
+				return <Page.Contact {...section} />
+			default:
+				return <Page.Testimonials {...section} />
+	}})}
 </Layout>
