@@ -23,8 +23,7 @@ const { title } = Astro.props as Props;
 </html>
 
 <style is:global>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&display=swap');
-  @import url('https://cdn.jsdelivr.net/npm/gotham-fonts@1.0.3/fonts/GothamRounded-Book.woff');
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
   :root {
     --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
@@ -45,17 +44,14 @@ const { title } = Astro.props as Props;
   }
 
   html {
-    font-family: 'Gotham Book', sans-serif;
+    font-family:  'Raleway', sans-serif;
     color: var(--color-text);
     background-color: var(--color-white);
+    scroll-behavior: smooth;
   }
 
   body {
-    /* background-image: url('./ryr.png');
-    height: 500vh; */
     background-repeat: no-repeat;
-    /*background-size: 1440px;
-    background-position: top; */
   }
 
   h1 {
@@ -67,7 +63,7 @@ const { title } = Astro.props as Props;
   h2 {
     font-size: var(--font-size-lg);
     color: var(--color-titles);
-    font-family: 'Gotham Book', sans-serif;
+    font-family:  'Raleway', sans-serif;
   }
   
   a {
@@ -75,11 +71,15 @@ const { title } = Astro.props as Props;
   }
   
   textarea, input{
-    font-family: 'Gotham Book', sans-serif;
+    font-family:  'Raleway', sans-serif;
     font-size: 13px;
   }
 
   hr {
     border: none;
+  }
+  .anchor{
+    position: relative;
+    top: -63px;
   }
 </style>
